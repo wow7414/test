@@ -43,7 +43,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.7.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.7.1\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,35 +88,176 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="acct_mgt\acct_mgt.aspx" />
+    <Content Include="AirComp\AirCompressor.aspx" />
+    <Content Include="AirComp\AirCompressorH.aspx" />
+    <Content Include="Check\add_data.aspx" />
+    <Content Include="Check\Check_data.aspx" />
+    <Content Include="css\bootstrap5.0.min.css" />
+    <Content Include="css\signin.css" />
+    <Content Include="factory_index\index.aspx" />
+    <Content Include="img\caret-right-fill.svg" />
+    <Content Include="img\companyicon.png" />
+    <Content Include="img\disconnected.png" />
+    <Content Include="img\link.png" />
+    <Content Include="img\pdf.png" />
+    <Content Include="js\chartjs-plugin-datalabels.min.js" />
+    <Content Include="js\freeze-table.js" />
+    <Content Include="Light\Factory_state.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="Mill\Mill_report.aspx" />
+    <Content Include="css\jquery-ui.css" />
     <Content Include="css\styles.css" />
-    <Content Include="factory.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="img\add.png" />
     <Content Include="img\Company.jpg" />
     <Content Include="img\data add.png" />
     <Content Include="img\delete.png" />
     <Content Include="img\edit.png" />
     <Content Include="img\error.png" />
+    <Content Include="img\excel.png" />
+    <Content Include="img\ui-icons_555555_256x240.png" />
     <Content Include="img\more.png" />
     <Content Include="img\pen.png" />
     <Content Include="img\save.png" />
     <Content Include="img\search.png" />
     <Content Include="img\square.png" />
     <Content Include="img\squarecheck.png" />
+    <Content Include="img\ui-icons_444444_256x240.png" />
     <Content Include="index.aspx" />
+    <Content Include="indexm.aspx" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\Chart.min.js" />
+    <Content Include="js\chartjs-plugin-zoom.js" />
+    <Content Include="js\class_edit.js" />
+    <Content Include="js\hammerjs%402.0.8.js" />
+    <Content Include="js\jquery-1.12.4.js" />
+    <Content Include="js\jquery-3.5.1.slim.min.js" />
+    <Content Include="js\jquery-ui-1.12.1.js" />
+    <Content Include="js\jquery.super-table.js" />
+    <Content Include="js\jquery.ui.monthpicker.js" />
+    <Content Include="js\moment.min.js" />
     <Content Include="js\scripts.js" />
-    <Content Include="Tag_acct.aspx" />
-    <Content Include="Tag_report.aspx" />
-    <Content Include="Tag_trend.aspx" />
-    <Content Include="Tag_update.aspx" />
+    <Content Include="phone\Factory_BL.aspx" />
+    <Content Include="phone\Factory_HL.aspx" />
+    <Content Include="phone\Factory_KH.aspx" />
+    <Content Include="phone\Factory_KY.aspx" />
+    <Content Include="phone\Factory_LD.aspx" />
+    <Content Include="phone\Factory_LZ.aspx" />
+    <Content Include="phone\Factory_QX.aspx" />
+    <Content Include="phone\Factory_ZB.aspx" />
+    <Content Include="power\Power_D.aspx" />
+    <Content Include="power\Power_H.aspx" />
+    <Content Include="process\build\Value_30Day.schedule\warn-Value_30Day.schedule.txt" />
+    <Content Include="process\build\Value_30Day.schedule\xref-Value_30Day.schedule.html" />
+    <Content Include="process\build\Value_30Day\warn-Value_30Day.txt" />
+    <Content Include="process\build\Value_30Day\xref-Value_30Day.html" />
+    <Content Include="process\build\Value_Hour.schedule\warn-Value_Hour.schedule.txt" />
+    <Content Include="process\build\Value_Hour.schedule\xref-Value_Hour.schedule.html" />
+    <Content Include="process\build\Value_Hour\warn-Value_Hour.txt" />
+    <Content Include="process\build\Value_Hour\xref-Value_Hour.html" />
+    <Content Include="process\build\Value_Min\warn-Value_Min.txt" />
+    <Content Include="process\build\Value_Min\xref-Value_Min.html" />
+    <Content Include="process\build\Value_Min_schedule\warn-Value_Min_schedule.txt" />
+    <Content Include="process\build\Value_Min_schedule\xref-Value_Min_schedule.html" />
+    <Content Include="process\dist\Value_30Day.exe" />
+    <Content Include="process\dist\Value_30Day.schedule.exe" />
+    <Content Include="process\dist\Value_Hour.exe" />
+    <Content Include="process\dist\Value_Hour.schedule.exe" />
+    <Content Include="process\dist\Value_Min.exe" />
+    <Content Include="process\dist\Value_Min_schedule.exe" />
+    <Content Include="PV\PV_D.aspx" />
+    <Content Include="PV\PV_H.aspx" />
+    <Content Include="Sys_maint\Detail.aspx" />
+    <Content Include="Tag\Tag_acct.aspx" />
+    <Content Include="Mill\Tag_report_KY.aspx" />
+    <Content Include="Tag\Tag_trend.aspx" />
+    <Content Include="Tag\Tag_Modify.aspx" />
+    <Content Include="Tag\Tag_trend_h.aspx" />
+    <Content Include="testgridview.aspx" />
+    <Content Include="upd_p_data.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="factory.aspx.cs">
-      <DependentUpon>factory.aspx</DependentUpon>
+    <Compile Include="acct_mgt\acct_mgt.aspx.cs">
+      <DependentUpon>acct_mgt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="factory.aspx.designer.cs">
-      <DependentUpon>factory.aspx</DependentUpon>
+    <Compile Include="acct_mgt\acct_mgt.aspx.designer.cs">
+      <DependentUpon>acct_mgt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AirComp\AirCompressor.aspx.cs">
+      <DependentUpon>AirCompressor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AirComp\AirCompressor.aspx.designer.cs">
+      <DependentUpon>AirCompressor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AirComp\AirCompressorH.aspx.cs">
+      <DependentUpon>AirCompressorH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AirComp\AirCompressorH.aspx.designer.cs">
+      <DependentUpon>AirCompressorH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Check\add_data.aspx.cs">
+      <DependentUpon>add_data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Check\add_data.aspx.designer.cs">
+      <DependentUpon>add_data.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Check\Check_data.aspx.cs">
+      <DependentUpon>Check_data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Check\Check_data.aspx.designer.cs">
+      <DependentUpon>Check_data.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="factory_index\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="factory_index\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\f_class.cs" />
+    <Compile Include="Light\Factory_state.aspx.cs">
+      <DependentUpon>Factory_state.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Light\Factory_state.aspx.designer.cs">
+      <DependentUpon>Factory_state.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mill\Mill_report.aspx.cs">
+      <DependentUpon>Mill_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mill\Mill_report.aspx.designer.cs">
+      <DependentUpon>Mill_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -103,6 +265,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="indexm.aspx.cs">
+      <DependentUpon>indexm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="indexm.aspx.designer.cs">
+      <DependentUpon>indexm.aspx</DependentUpon>
     </Compile>
     <Compile Include="lib\others.cs" />
     <Compile Include="lib\SQLDB.cs" />
@@ -113,45 +282,250 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="phone\Factory_BL.aspx.cs">
+      <DependentUpon>Factory_BL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_BL.aspx.designer.cs">
+      <DependentUpon>Factory_BL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_HL.aspx.cs">
+      <DependentUpon>Factory_HL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_HL.aspx.designer.cs">
+      <DependentUpon>Factory_HL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_KH.aspx.cs">
+      <DependentUpon>Factory_KH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_KH.aspx.designer.cs">
+      <DependentUpon>Factory_KH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_KY.aspx.cs">
+      <DependentUpon>Factory_KY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_KY.aspx.designer.cs">
+      <DependentUpon>Factory_KY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_LD.aspx.cs">
+      <DependentUpon>Factory_LD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_LD.aspx.designer.cs">
+      <DependentUpon>Factory_LD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_LZ.aspx.cs">
+      <DependentUpon>Factory_LZ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_LZ.aspx.designer.cs">
+      <DependentUpon>Factory_LZ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_QX.aspx.cs">
+      <DependentUpon>Factory_QX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_QX.aspx.designer.cs">
+      <DependentUpon>Factory_QX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="phone\Factory_ZB.aspx.cs">
+      <DependentUpon>Factory_ZB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="phone\Factory_ZB.aspx.designer.cs">
+      <DependentUpon>Factory_ZB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="power\Power_D.aspx.cs">
+      <DependentUpon>Power_D.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="power\Power_D.aspx.designer.cs">
+      <DependentUpon>Power_D.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="power\Power_H.aspx.cs">
+      <DependentUpon>Power_H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="power\Power_H.aspx.designer.cs">
+      <DependentUpon>Power_H.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tag_acct.aspx.cs">
+    <Compile Include="PV\PV_D.aspx.cs">
+      <DependentUpon>PV_D.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PV\PV_D.aspx.designer.cs">
+      <DependentUpon>PV_D.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PV\PV_H.aspx.cs">
+      <DependentUpon>PV_H.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PV\PV_H.aspx.designer.cs">
+      <DependentUpon>PV_H.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_maint\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys_maint\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tag\Tag_acct.aspx.cs">
       <DependentUpon>Tag_acct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tag_acct.aspx.designer.cs">
+    <Compile Include="Tag\Tag_acct.aspx.designer.cs">
       <DependentUpon>Tag_acct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tag_report.aspx.cs">
-      <DependentUpon>Tag_report.aspx</DependentUpon>
+    <Compile Include="Mill\Tag_report_KY.aspx.cs">
+      <DependentUpon>Tag_report_KY.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tag_report.aspx.designer.cs">
-      <DependentUpon>Tag_report.aspx</DependentUpon>
+    <Compile Include="Mill\Tag_report_KY.aspx.designer.cs">
+      <DependentUpon>Tag_report_KY.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tag_trend.aspx.cs">
+    <Compile Include="Tag\Tag_trend.aspx.cs">
       <DependentUpon>Tag_trend.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tag_trend.aspx.designer.cs">
+    <Compile Include="Tag\Tag_trend.aspx.designer.cs">
       <DependentUpon>Tag_trend.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tag_update.aspx.cs">
-      <DependentUpon>Tag_update.aspx</DependentUpon>
+    <Compile Include="Tag\Tag_Modify.aspx.cs">
+      <DependentUpon>Tag_Modify.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tag_update.aspx.designer.cs">
-      <DependentUpon>Tag_update.aspx</DependentUpon>
+    <Compile Include="Tag\Tag_Modify.aspx.designer.cs">
+      <DependentUpon>Tag_Modify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tag\Tag_trend_h.aspx.cs">
+      <DependentUpon>Tag_trend_h.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tag\Tag_trend_h.aspx.designer.cs">
+      <DependentUpon>Tag_trend_h.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testgridview.aspx.cs">
+      <DependentUpon>testgridview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testgridview.aspx.designer.cs">
+      <DependentUpon>testgridview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="upd_p_data.aspx.cs">
+      <DependentUpon>upd_p_data.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="upd_p_data.aspx.designer.cs">
+      <DependentUpon>upd_p_data.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
+    <Content Include="js\bootstrap.bundle.min.js.map" />
     <None Include="packages.config" />
+    <Content Include="process\build\Value_30Day.schedule\Analysis-00.toc" />
+    <Content Include="process\build\Value_30Day.schedule\base_library.zip" />
+    <Content Include="process\build\Value_30Day.schedule\EXE-00.toc" />
+    <Content Include="process\build\Value_30Day.schedule\PKG-00.pkg" />
+    <Content Include="process\build\Value_30Day.schedule\PKG-00.toc" />
+    <Content Include="process\build\Value_30Day.schedule\PYZ-00.pyz" />
+    <Content Include="process\build\Value_30Day.schedule\PYZ-00.toc" />
+    <Content Include="process\build\Value_30Day.schedule\Tree-00.toc" />
+    <Content Include="process\build\Value_30Day.schedule\Tree-01.toc" />
+    <Content Include="process\build\Value_30Day.schedule\Tree-02.toc" />
+    <Content Include="process\build\Value_30Day.schedule\Value_30Day.schedule.exe.manifest" />
+    <Content Include="process\build\Value_30Day\Analysis-00.toc" />
+    <Content Include="process\build\Value_30Day\base_library.zip" />
+    <Content Include="process\build\Value_30Day\EXE-00.toc" />
+    <Content Include="process\build\Value_30Day\PKG-00.pkg" />
+    <Content Include="process\build\Value_30Day\PKG-00.toc" />
+    <Content Include="process\build\Value_30Day\PYZ-00.pyz" />
+    <Content Include="process\build\Value_30Day\PYZ-00.toc" />
+    <Content Include="process\build\Value_30Day\Tree-00.toc" />
+    <Content Include="process\build\Value_30Day\Tree-01.toc" />
+    <Content Include="process\build\Value_30Day\Tree-02.toc" />
+    <Content Include="process\build\Value_30Day\Value_30Day.exe.manifest" />
+    <Content Include="process\build\Value_Hour.schedule\Analysis-00.toc" />
+    <Content Include="process\build\Value_Hour.schedule\base_library.zip" />
+    <Content Include="process\build\Value_Hour.schedule\EXE-00.toc" />
+    <Content Include="process\build\Value_Hour.schedule\PKG-00.pkg" />
+    <Content Include="process\build\Value_Hour.schedule\PKG-00.toc" />
+    <Content Include="process\build\Value_Hour.schedule\PYZ-00.pyz" />
+    <Content Include="process\build\Value_Hour.schedule\PYZ-00.toc" />
+    <Content Include="process\build\Value_Hour.schedule\Tree-00.toc" />
+    <Content Include="process\build\Value_Hour.schedule\Tree-01.toc" />
+    <Content Include="process\build\Value_Hour.schedule\Tree-02.toc" />
+    <Content Include="process\build\Value_Hour.schedule\Value_Hour.schedule.exe.manifest" />
+    <Content Include="process\build\Value_Hour\Analysis-00.toc" />
+    <Content Include="process\build\Value_Hour\base_library.zip" />
+    <Content Include="process\build\Value_Hour\EXE-00.toc" />
+    <Content Include="process\build\Value_Hour\PKG-00.pkg" />
+    <Content Include="process\build\Value_Hour\PKG-00.toc" />
+    <Content Include="process\build\Value_Hour\PYZ-00.pyz" />
+    <Content Include="process\build\Value_Hour\PYZ-00.toc" />
+    <Content Include="process\build\Value_Hour\Tree-00.toc" />
+    <Content Include="process\build\Value_Hour\Tree-01.toc" />
+    <Content Include="process\build\Value_Hour\Tree-02.toc" />
+    <Content Include="process\build\Value_Hour\Value_Hour.exe.manifest" />
+    <Content Include="process\build\Value_Min\Analysis-00.toc" />
+    <Content Include="process\build\Value_Min\base_library.zip" />
+    <Content Include="process\build\Value_Min\EXE-00.toc" />
+    <Content Include="process\build\Value_Min\PKG-00.pkg" />
+    <Content Include="process\build\Value_Min\PKG-00.toc" />
+    <Content Include="process\build\Value_Min\PYZ-00.pyz" />
+    <Content Include="process\build\Value_Min\PYZ-00.toc" />
+    <Content Include="process\build\Value_Min\Tree-00.toc" />
+    <Content Include="process\build\Value_Min\Tree-01.toc" />
+    <Content Include="process\build\Value_Min\Tree-02.toc" />
+    <Content Include="process\build\Value_Min\Value_Min.exe.manifest" />
+    <Content Include="process\build\Value_Min_schedule\Analysis-00.toc" />
+    <Content Include="process\build\Value_Min_schedule\base_library.zip" />
+    <Content Include="process\build\Value_Min_schedule\EXE-00.toc" />
+    <Content Include="process\build\Value_Min_schedule\PKG-00.pkg" />
+    <Content Include="process\build\Value_Min_schedule\PKG-00.toc" />
+    <Content Include="process\build\Value_Min_schedule\PYZ-00.pyz" />
+    <Content Include="process\build\Value_Min_schedule\PYZ-00.toc" />
+    <Content Include="process\build\Value_Min_schedule\Tree-00.toc" />
+    <Content Include="process\build\Value_Min_schedule\Tree-01.toc" />
+    <Content Include="process\build\Value_Min_schedule\Tree-02.toc" />
+    <Content Include="process\build\Value_Min_schedule\Value_Min_schedule.exe.manifest" />
+    <Content Include="process\Value_30Day.py" />
+    <Content Include="process\Value_30Day.schedule.py" />
+    <Content Include="process\Value_30Day.schedule.spec" />
+    <Content Include="process\Value_30Day.spec" />
+    <Content Include="process\Value_Hour.py" />
+    <Content Include="process\Value_Hour.schedule.py" />
+    <Content Include="process\Value_Hour.schedule.spec" />
+    <Content Include="process\Value_Hour.spec" />
+    <Content Include="process\Value_Min.py" />
+    <Content Include="process\Value_Min.spec" />
+    <Content Include="process\Value_Min_schedule.py" />
+    <Content Include="process\Value_Min_schedule.spec" />
+    <Content Include="process\__pycache__\Value_30Day.cpython-38.pyc" />
+    <Content Include="process\__pycache__\Value_Hour.cpython-38.pyc" />
+    <Content Include="process\__pycache__\Value_Min.cpython-38.pyc" />
+    <Content Include="process\__pycache__\Value_Min_schedule.cpython-38.pyc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="process\build\Value_Hour_schedule\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,16 +9,17 @@ namespace factory.lib
 {
     public class SQLDB
     {
-        public String DBConnStr = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["RuntimeConnStr"].ConnectionString;
-        
+        public String DBConnStr = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ZDBConnStr"].ConnectionString;
         private static SqlConnection conn;
+        
         public void replace(int i)
         {
             if (i == 1)
             {
-                DBConnStr = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["ZDBConnStr"].ConnectionString;
+                DBConnStr = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["RuntimeConnStr"].ConnectionString;
             }
         }
+        
         public void BuildConn()
         {
             conn = new SqlConnection(DBConnStr);
@@ -61,57 +62,67 @@ namespace factory.lib
             }
         }
 
-        public DataTable GetDataTable(string sql)
+        public DataTable GetDataTable(string sql, CommandType commandType)
         {       //回傳值且沒有Parameters
 
             BuildConn();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            OpenConnection();
+            cmd.CommandType = commandType;
+            cmd.CommandTimeout = 120;
+
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd;
-
             DataTable dt = new DataTable();
+
+            OpenConnection();
             adapter.Fill(dt);
             CloseConnection();
             return dt;
         }
 
-        public DataTable GetDataTable(string sql, List<List<string>> par_list)
+        public DataTable GetDataTable(string sql, List<SqlParameter> par_list, CommandType commandType)
         {       //回傳值且有Parameters
 
             BuildConn();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            foreach (List<string> x in par_list)
+            cmd.CommandType = commandType;
+            cmd.CommandTimeout = 120;
+            foreach (SqlParameter param in par_list)
             {
-                cmd.Parameters.AddWithValue(x[0], x[1]);
+                cmd.Parameters.Add(param);
             }
-            OpenConnection();
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd;
 
             DataTable dt = new DataTable();
+            OpenConnection();
             adapter.Fill(dt);
             CloseConnection();
             return dt;
 
         }
 
-        public void RunCmd(string sql)
+        public void RunCmd(string sql, CommandType commandType)
         {       //增刪改 沒Parameters
             BuildConn();
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = commandType;
+            cmd.CommandTimeout = 120;
             OpenConnection();
             cmd.ExecuteReader();
             CloseConnection();
         }
 
-        public void RunCmd(string sql, List<List<string>> par_list)
+        public void RunCmd(string sql, List<SqlParameter> par_list, CommandType commandType)
         {       //增刪改 有Parameters
             BuildConn();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            foreach (List<string> x in par_list)
+            cmd.CommandType = commandType;
+            cmd.CommandTimeout = 120;
+
+            foreach (SqlParameter param in par_list)
             {
-                cmd.Parameters.AddWithValue(x[0], x[1]);
+                cmd.Parameters.Add(param);
             }
             OpenConnection();
             cmd.ExecuteReader();
